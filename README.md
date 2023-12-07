@@ -22,7 +22,13 @@ Before running the bot, you'll need API keys for the following services:
    git clone https://github.com/your-username/telegram-bot.git
    ```
 2. **Navigate to the project directory.**
+   ```
+   cd telegram-bot
+   ```
 3. **Install the required dependencies.**
+   ```
+   pip install -r requirements.txt
+   ```
 
 ### Configuration
 
