@@ -253,35 +253,32 @@ def handle_callback_query(call):
     # Extracting data from JSON and storing it in the appropriate variables
     place_name = place_data["name"]
 
-    user_id = call.message.chat.id  # Получаем ID пользователя из объекта chat
+    user_id = call.message.chat.id
 
-    # Функция для проверки и добавления пользователя в таблицу Users
+    # Function to check and add a user to the Users table
     def check_and_add_user(user_id):
         connection = sqlite3.connect("database.db")
         cursor = connection.cursor()
 
-        # Проверяем наличие пользователя в таблице Users
+        # Check the presence of a user in the Users table
         cursor.execute("SELECT ID FROM Users WHERE ID=?", (user_id,))
         user_exists = cursor.fetchone()
 
         if not user_exists:
-            # Если пользователя нет, добавляем его
+            # If there is no user, add him
             cursor.execute("INSERT INTO Users (ID) VALUES (?)", (user_id,))
             connection.commit()
 
         connection.close()
 
-    # Функция для проверки и добавления записи в таблицу WantToVisit
     def check_and_add_place(user_id, place_name):
         connection = sqlite3.connect("database.db")
         cursor = connection.cursor()
 
-        # Проверяем наличие записи в таблице WantToVisit для данного пользователя и места
         cursor.execute("SELECT ID FROM WantToVisit WHERE ID=? AND Place=?", (user_id, place_name))
         place_exists = cursor.fetchone()
 
         if not place_exists:
-            # Если записи нет, добавляем её
             cursor.execute("INSERT INTO WantToVisit (ID, Place) VALUES (?, ?)", (user_id, place_name))
             connection.commit()
 
@@ -373,7 +370,6 @@ def want_to_visit(message):
         bot.send_message(message.chat.id, "You don't have any entries about the places you want to visit.")
 
 
-# Handler for the "Visited" button
 @bot.message_handler(func=lambda message: message.text == "I've already visited")
 def want_to_visit(message):
     user_id = message.from_user.id

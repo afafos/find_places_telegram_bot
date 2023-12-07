@@ -19,7 +19,7 @@ Before running the bot, you'll need API keys for the following services:
 1. **Clone the repository to your local machine:**
 
    ```
-   git clone https://github.com/your-username/telegram-bot.git
+   git clone https://github.com/afafos/find_places_telegram_bot.git
    ```
 2. **Navigate to the project directory.**
    ```
