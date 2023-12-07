@@ -22,7 +22,7 @@ def generate_pdf(name, address, description, formatted_phones, url, image_url):
     story = []
 
     # Register the DejaVuSans.ttf font
-    pdfmetrics.registerFont(TTFont("DejaVuSans", "DejaVuSans.ttf"))
+    pdfmetrics.registerFont(TTFont("DejaVuSans", "fonts_for_pdf/DejaVuSans.ttf"))
 
     styles = getSampleStyleSheet()
     styleN = styles["Normal"]
@@ -70,17 +70,17 @@ def generate_pdf(name, address, description, formatted_phones, url, image_url):
     address_text = Paragraph(f"<b><u>Address:</u></b> {address}", style=styleN)
     story.append(address_text)
 
-    # Добавляем пустую строку
+    # Add an empty line
     story.append(Spacer(1, 12))
 
     description_text = Paragraph(f"<b><u>Description:</u></b> {description}", style=styleN)
     story.append(description_text)
-    # Добавляем пустую строку
+
     story.append(Spacer(1, 12))
     phones_text = "<b><u>Phones:</u></b><br/>" + "<br/>".join(formatted_phones)
     phones_text = Paragraph(phones_text, style=styleN)
     story.append(phones_text)
-    # Добавляем пустую строку
+
     story.append(Spacer(1, 12))
     url_text = Paragraph(f"<b><u>URL:</u></b> {url}", style=styleN)
     story.append(url_text)
