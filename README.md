@@ -49,7 +49,7 @@ Before running the bot, you'll need API keys for the following services:
 python main.py
 ```
 
-### Functionality
+## Functionality
 
 - **Searching for Places:**
   Use the `/search` command to find museums, monuments and more in a specific location.
@@ -63,7 +63,7 @@ python main.py
 - **Saving Places:**
   Save places you want to visit or have already visited. Access the lists with the `Want to visit` and `I've already visited` buttons.
 
-### Additional Scripts
+## Additional Scripts
 
 - **geoposition_mapquest.py:**
   Contains functions for calculating distances, obtaining coordinates and generating static maps using the MapQuest API.
