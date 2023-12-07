@@ -1,0 +1,5 @@
+api.py
+*.json
+*.jpg
+tz.txt
+ __pycache__/
